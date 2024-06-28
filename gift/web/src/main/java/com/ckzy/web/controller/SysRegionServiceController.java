@@ -1,28 +1,28 @@
 package com.ckzy.web.controller;
 
-import com.auth0.jwt.interfaces.DecodedJWT;
-import com.ckzy.common.annotation.NotIncludeSwagger;
+
+
 import com.ckzy.common.enumerate.Check;
 import com.ckzy.common.enumerate.RNumber;
 import com.ckzy.common.exception.BusinessException;
 import com.ckzy.common.exception.SystemException;
 import com.ckzy.common.result.Result;
-import com.ckzy.common.utils.JWTUtils;
-import com.ckzy.pojo.dto.address.AddressDTO;
+
+
 import com.ckzy.pojo.entity.SysRegion;
 import com.ckzy.service.SysRegionService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.jnlp.ClipboardService;
-import java.util.HashMap;
+
+
 import java.util.List;
-import java.util.Map;
+
 
 @Controller
 @ResponseBody

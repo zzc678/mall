@@ -2,13 +2,17 @@ package com.ckzy.pojo.dto.department;
 
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
+@AllArgsConstructor
 @ApiOperation("添加部门")
+@Builder
 public class SaveDepartmentDTO {
 
     @NotBlank(message = "部门名称不能为空！")

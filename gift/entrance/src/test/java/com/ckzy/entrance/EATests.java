@@ -6,6 +6,7 @@ import com.ckzy.common.result.Result;
 import com.ckzy.dao.mapper.DepartmentMapper;
 import com.ckzy.dao.mapper.MallMapper;
 import com.ckzy.pojo.dto.department.ConditionFindDepartmentDTO;
+import com.ckzy.pojo.dto.department.SaveDepartmentDTO;
 import com.ckzy.pojo.dto.mall.AddMallDTO;
 import com.ckzy.service.DepartmentService;
 import lombok.extern.slf4j.Slf4j;
@@ -58,5 +59,11 @@ class EATests {
     @Test
     public void t10() {
         System.out.println(departmentService.listInfo());
+    }
+
+    @Test
+    public void t11() {
+        SaveDepartmentDTO cut = SaveDepartmentDTO.builder().deptName("剪刀石部").parentDept(1).deptResp(2).build();
+        departmentMapper.addDepartment(cut);
     }
 }
