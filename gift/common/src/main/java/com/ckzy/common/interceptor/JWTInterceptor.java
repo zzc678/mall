@@ -44,8 +44,6 @@ public class JWTInterceptor implements HandlerInterceptor {
         map.put("status", false);
         String s = new ObjectMapper().writeValueAsString(map);
         response.setContentType("application/json;charset=UTF-8");
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Method", "*");
 
         return false;
     }
