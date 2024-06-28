@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckzy.dao.mapper.MallMapper">
+
+    <!-- 添加商城 -->
+    <insert id="addMall">
+
+        INSERT INTO `b_mall`
+        (`name`, `link`, `description`, `ticket_name`, `face_value_id`, `integral_id`, `mall_type_id`)
+            VALUE(#{name}, #{link}, #{description}, #{ticketName}, #{faceValueId}, #{integralId}, #{mallTypeId})
+
+    </insert>
+
+
+    <!-- 批量删除商城 -->
+    <delete id="deleteMalls">
+
+        DELETE FROM `b_mall`
+               WHERE id IN
+               <foreach collection="ids" open="(" close=")" separator="," item="id">
+                   #{id}
+               </foreach>
+
+    </delete>
+
+
+    <!--  -->
+    <select id="showMallMsg" resultType="com.ckzy.pojo.vo.mall.MallListVO">
+
+        select name, description, integral_id, ticket_name, login_way, status, link from `b_mall`
+
+    </select>
+</mapper>

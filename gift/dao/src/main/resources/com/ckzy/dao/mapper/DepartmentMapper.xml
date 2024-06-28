@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckzy.dao.mapper.DepartmentMapper">
+
+    <select id="deptList" resultType="hashmap">
+
+        select `id`, `dept_name` as deptName from b_department
+    </select>
+
+    <select id="deptResponsibilities" resultType="hashmap">
+
+        SELECT distinct  id, `short_name` as shortName FROM b_member_info
+    </select>
+
+    <select id="conditionSelectByDeptNameAndIdDepartment" resultType="com.ckzy.pojo.vo.department.ShowDepartmentListVO">
+
+        SELECT dept.id AS deptId,
+               dept.dept_name AS deptName,
+               (SELECT dept_name FROM b_department WHERE id =  dept.parent_dept_id) as parentDept,
+               (SELECT short_name FROM b_department WHERE id =  dept.dept_resp_id) as deptResp,
+               (SELECT short_name FROM b_department WHERE id =   dept.create_person_id) as createPerson,
+               dept.create_datetime
+        FROM b_department dept LEFT OUTER JOIN b_member_info mber ON dept.id = mber.dept_id
+        WHERE 1 = 1
+
+            <if test="deptName != null and deptName != ''">
+                AND dept.dept_name LIKE CONCAT('%', #{deptName},'%')
+            </if>
+            <if test="id != null">
+                AND dept.id = #{id}
+            </if>
+
+
+    </select>
+
+</mapper>

@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/dev
+      username: root
+      password: 123456
+      initial-size: 2 # 初始化时，建立物理连接的个数
+      max-active: 10 # 最大连接池数量
+      min-idle: 2 # 最小连接池数量
+      max-wait: 2000 # 获取连接时，最大的等待时间。单位毫秒。
+      pool-prepared-statements: false # 是否缓存，MySQL需要设置为false。
+  main:
+    banner-mode: off
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    root: info
+
+
+
+
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckzy.dao.mapper.MallTypeMapper">
+
+    <select id="getList" resultType="com.ckzy.pojo.entity.MallType">
+        SELECT `id`, `name` FROM b_mall_type;
+    </select>
+</mapper>
