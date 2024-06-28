@@ -5,15 +5,18 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
 @ApiOperation("添加部门")
 @Builder
-public class SaveDepartmentDTO {
+@NoArgsConstructor
+public class SaveDepartmentDTO implements Serializable {
 
     @NotBlank(message = "部门名称不能为空！")
     @ApiModelProperty("部门名称")
