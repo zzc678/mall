@@ -12,12 +12,11 @@ public class GlobalCorsConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("*");
+        config.addAllowedOriginPattern("*");
         config.setAllowCredentials(true);
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
         config.addExposedHeader("token");
-
 
         UrlBasedCorsConfigurationSource ucs = new UrlBasedCorsConfigurationSource();
         ucs.registerCorsConfiguration("/**", config);
