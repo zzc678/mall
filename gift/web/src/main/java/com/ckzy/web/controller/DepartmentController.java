@@ -9,6 +9,7 @@ import com.ckzy.pojo.vo.department.ShowDepartmentListVO;
 import com.ckzy.service.DepartmentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,8 @@ import java.util.Map;
 @ResponseBody
 @RequestMapping("/dept")
 @Api(tags = "部门管理模块")
+@Slf4j
+@SuppressWarnings("all")
 public class DepartmentController {
 
 
@@ -75,8 +78,9 @@ public class DepartmentController {
 
         try {
             List<ShowDepartmentListVO> list = departmentService.listInfo();
+
             if (!list.isEmpty())
-                return Result.success(RNumber.FIND_SUCCESS.ordinal(), list);
+                return new Result<>(Check.FIND_SUCCESS.getMessage(), Check.FIND_SUCCESS.getCode(), list);
         } catch (Exception e) {
             throw new SystemException(Check.EXCEPTION.getMessage(), Check.EXCEPTION.getCode());
         }
@@ -91,6 +95,7 @@ public class DepartmentController {
 
         try {
             List<ShowDepartmentListVO> list = departmentService.conditionListInfo(data);
+            log.info(list.toString());
             if (!list.isEmpty())
                 return Result.success(RNumber.FIND_SUCCESS.ordinal(), list);
         } catch (Exception e) {

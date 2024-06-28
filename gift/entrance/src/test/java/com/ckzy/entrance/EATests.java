@@ -7,13 +7,14 @@ import com.ckzy.dao.mapper.DepartmentMapper;
 import com.ckzy.dao.mapper.MallMapper;
 import com.ckzy.pojo.dto.department.ConditionFindDepartmentDTO;
 import com.ckzy.pojo.dto.mall.AddMallDTO;
+import com.ckzy.service.DepartmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
-@SpringBootTest
+@SpringBootTest(classes = EntranceApplication.class)
 @Slf4j
 class EATests {
 
@@ -23,21 +24,11 @@ class EATests {
     @Autowired
     private DepartmentMapper departmentMapper;
 
+    @Autowired
+    private DepartmentService departmentService;
 
-    @Test
-    public void t1() {
 
-        AddMallDTO data = new AddMallDTO();
-        data.setId(null);
-        data.setName("商城名");
-        data.setLink("链接");
-        data.setDescription("描述");
-        data.setTicketName("票名");
-        data.setMallTypeId(1L);
-        data.setFaceValueId(2L);
-        data.setIntegralId(1L);
-        System.out.println(mallMapper.addMall(data));
-    }
+
 
 
 
@@ -61,5 +52,11 @@ class EATests {
     @SuppressWarnings("all")
     public void t9() {
         System.out.println(Result.failed(RNumber.MODIFY_ERROR.ordinal()));
+    }
+
+
+    @Test
+    public void t10() {
+        System.out.println(departmentService.listInfo());
     }
 }
