@@ -78,7 +78,7 @@ public class DepartmentController {
 
         try {
             List<ShowDepartmentListVO> list = departmentService.listInfo();
-
+            log.info("数据=========》{}", list);
             if (!list.isEmpty())
                 return new Result<>(Check.FIND_SUCCESS.getMessage(), Check.FIND_SUCCESS.getCode(), list);
         } catch (Exception e) {

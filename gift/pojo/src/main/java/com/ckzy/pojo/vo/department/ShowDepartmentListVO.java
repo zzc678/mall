@@ -1,8 +1,10 @@
 package com.ckzy.pojo.vo.department;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class ShowDepartmentListVO {
 
 
