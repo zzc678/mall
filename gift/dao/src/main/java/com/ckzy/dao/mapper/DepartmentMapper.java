@@ -2,6 +2,7 @@ package com.ckzy.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ckzy.pojo.dto.department.ConditionFindDepartmentDTO;
+import com.ckzy.pojo.dto.department.SaveDepartmentDTO;
 import com.ckzy.pojo.entity.Department;
 import com.ckzy.pojo.vo.department.ShowDepartmentListVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -34,5 +35,13 @@ public interface DepartmentMapper extends BaseMapper<Department> {
      * @return
      */
     List<ShowDepartmentListVO> conditionSelectByDeptNameAndIdDepartment(ConditionFindDepartmentDTO data);
+
+
+    /**
+     * 添加部门
+     * @param data
+     * @return
+     */
+    Integer addDepartment(SaveDepartmentDTO data);
 
 }

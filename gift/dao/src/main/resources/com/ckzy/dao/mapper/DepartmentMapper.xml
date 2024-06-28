@@ -31,8 +31,11 @@
             <if test="id != null">
                 AND dept.id = #{id}
             </if>
+    </select>
 
 
+    <select id="addDepartment" resultType="Integer">
+        insert into b_department  (`dept_name` as deptName, `parent_dept_id` as parentDept, dept_resp_id as deptResp, create_person_id,create_datetime) value(#{deptName}, #{parentDept}, #{deptResp}, null, now());
     </select>
 
 </mapper>

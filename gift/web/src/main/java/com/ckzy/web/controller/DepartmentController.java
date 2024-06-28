@@ -2,9 +2,11 @@ package com.ckzy.web.controller;
 
 import com.ckzy.common.enumerate.Check;
 import com.ckzy.common.enumerate.RNumber;
+import com.ckzy.common.exception.BusinessException;
 import com.ckzy.common.exception.SystemException;
 import com.ckzy.common.result.Result;
 import com.ckzy.pojo.dto.department.ConditionFindDepartmentDTO;
+import com.ckzy.pojo.dto.department.SaveDepartmentDTO;
 import com.ckzy.pojo.vo.department.ShowDepartmentListVO;
 import com.ckzy.service.DepartmentService;
 import io.swagger.annotations.Api;
@@ -14,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -103,4 +106,19 @@ public class DepartmentController {
         }
         return Result.failed(RNumber.FIND_ERROR.ordinal());
     }
+
+
+    @PostMapping("/adddept")
+    public Result<?> saveDept(@Valid SaveDepartmentDTO data) {
+
+        try {
+            if (departmentService.saveDepartment(data))
+                return Result.success(RNumber.SAVE_SUCCESS.ordinal(), null);
+        } catch (Exception e) {
+            throw new BusinessException(Check.BUSINESS_EXCEPTION.getMessage(), Check.BUSINESS_EXCEPTION.getCode());
+        }
+
+        return Result.failed(RNumber.SAVE_ERROR.ordinal());
+    }
+
 }

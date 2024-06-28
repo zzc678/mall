@@ -2,6 +2,7 @@ package com.ckzy.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ckzy.pojo.dto.department.ConditionFindDepartmentDTO;
+import com.ckzy.pojo.dto.department.SaveDepartmentDTO;
 import com.ckzy.pojo.entity.Department;
 import com.ckzy.pojo.vo.department.ShowDepartmentListVO;
 
@@ -38,4 +39,12 @@ public interface DepartmentService extends IService<Department> {
      * @return
      */
     List<ShowDepartmentListVO> conditionListInfo(ConditionFindDepartmentDTO data);
+
+
+    /**
+     * 添加部门
+     * @param data
+     * @return
+     */
+    Boolean saveDepartment(SaveDepartmentDTO data);
 }
