@@ -64,6 +64,15 @@ class EATests {
     @Test
     public void t11() {
         SaveDepartmentDTO cut = SaveDepartmentDTO.builder().deptName("剪刀石部").parentDept(1).deptResp(2).build();
-        departmentMapper.addDepartment(cut);
+        System.out.println(departmentMapper.addDepartment(cut));
     }
+
+    @Test
+    public void t12() {
+        SaveDepartmentDTO cut = SaveDepartmentDTO.builder().deptName("剪刀石部").parentDept(1).deptResp(2).build();
+        Boolean b = departmentService.saveDepartment(cut);
+
+    }
+
+
 }
