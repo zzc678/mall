@@ -109,7 +109,8 @@ public class DepartmentController {
 
 
     @PostMapping("/adddept")
-    public Result<?> saveDept(@Valid SaveDepartmentDTO data) {
+    @ApiOperation(value = "新增部门接口", tags = "返回JSON数据")
+    public Result<?> saveDept(@Valid @RequestBody SaveDepartmentDTO data) {
 
         try {
             if (departmentService.saveDepartment(data))
