@@ -17,11 +17,11 @@
     <select id="conditionSelectByDeptNameAndIdDepartment" resultType="com.ckzy.pojo.vo.department.ShowDepartmentListVO">
 
         SELECT dept.id AS deptId,
-               dept.dept_name AS deptName,
-               (SELECT dept_name FROM b_department WHERE id =  dept.parent_dept_id) as parentDept,
-               (SELECT short_name FROM b_department WHERE id =  dept.dept_resp_id) as deptResp,
-               (SELECT short_name FROM b_department WHERE id =   dept.create_person_id) as createPerson,
-               dept.create_datetime
+        dept.dept_name AS deptName,
+        (SELECT dept_name FROM b_department WHERE id =  dept.parent_dept_id) as parentDept,
+        (SELECT short_name FROM b_member_info WHERE id = dept_resp_id) as deptResp,
+        (SELECT short_name FROM b_department WHERE id =  dept.create_person_id) as createPerson,
+        dept.create_datetime
         FROM b_department dept LEFT OUTER JOIN b_member_info mber ON dept.id = mber.dept_id
         WHERE 1 = 1
 

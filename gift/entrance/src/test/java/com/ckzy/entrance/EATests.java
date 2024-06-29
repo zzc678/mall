@@ -8,11 +8,14 @@ import com.ckzy.dao.mapper.MallMapper;
 import com.ckzy.pojo.dto.department.ConditionFindDepartmentDTO;
 import com.ckzy.pojo.dto.department.SaveDepartmentDTO;
 import com.ckzy.pojo.dto.mall.AddMallDTO;
+import com.ckzy.pojo.vo.department.ShowDepartmentListVO;
 import com.ckzy.service.DepartmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 
 @SpringBootTest(classes = EntranceApplication.class)
@@ -71,6 +74,13 @@ class EATests {
     public void t12() {
         SaveDepartmentDTO cut = SaveDepartmentDTO.builder().deptName("剪刀石部").parentDept(1).deptResp(2).build();
         Boolean b = departmentService.saveDepartment(cut);
+
+    }
+
+    @Test
+    public void t13() {
+        List<ShowDepartmentListVO> showDepartmentListVOS = departmentMapper.conditionSelectByDeptNameAndIdDepartment(null);
+        System.out.println(showDepartmentListVOS);
 
     }
 

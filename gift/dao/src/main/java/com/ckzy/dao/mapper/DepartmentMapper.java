@@ -14,11 +14,6 @@ import java.util.Map;
 @SuppressWarnings("all")
 public interface DepartmentMapper extends BaseMapper<Department> {
 
-    /**
-     * 获取部门列表
-     * @return
-     */
-//    List<String> deptList();
 
     List<Map<String, String>> deptList();
 
