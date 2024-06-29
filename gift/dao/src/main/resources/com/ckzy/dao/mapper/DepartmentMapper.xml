@@ -24,7 +24,6 @@
         dept.create_datetime
         FROM b_department dept LEFT OUTER JOIN b_member_info mber ON dept.id = mber.dept_id
         WHERE 1 = 1
-
             <if test="deptName != null and deptName != ''">
                 AND dept.dept_name LIKE CONCAT('%', #{deptName},'%')
             </if>
@@ -35,7 +34,7 @@
 
 
     <insert id="addDepartment">
-        insert into b_department  (`dept_name`, `parent_dept_id`, dept_resp_id, create_person_id ,create_datetime) value(#{deptName}, #{parentDept}, #{deptResp}, '章鱼哥', now());
+        insert into b_department  (`dept_name`, `parent_dept_id`, dept_resp_id, create_person_id ,create_datetime) value(#{deptName}, #{parentDept}, #{deptResp}, 1, now());
     </insert>
 
 </mapper>
