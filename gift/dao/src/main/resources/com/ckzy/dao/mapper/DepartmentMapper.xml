@@ -35,7 +35,7 @@
 
 
     <insert id="addDepartment">
-        insert into b_department  (`dept_name`, `parent_dept_id`, dept_resp_id, create_person_id ,create_datetime) value(#{deptName}, #{parentDept}, #{deptResp}, null, now());
+        insert into b_department  (`dept_name`, `parent_dept_id`, dept_resp_id, create_person_id ,create_datetime) value(#{deptName}, #{parentDept}, #{deptResp}, '章鱼哥', now());
     </insert>
 
 </mapper>
